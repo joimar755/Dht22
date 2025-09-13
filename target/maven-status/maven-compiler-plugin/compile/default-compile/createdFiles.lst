@@ -1,11 +1,13 @@
-Vista/Led$1.class
 com/mycompany/dht22/Dht22.class
 Vista/Grafico$1.class
+Vista/Led$4.class
+Modelo/Consulta.class
+Vista/Led$5.class
+Controlador/Controlador_esp.class
+Vista/Led$1.class
 Vista/Led.class
 Modelo/Modelo_dht.class
-Modelo/Consulta.class
 Vista/Led$2.class
 Vista/Led$3.class
 Vista/Grafico.class
 Modelo/Conexion.class
-Controlador/Controlador_esp.class
