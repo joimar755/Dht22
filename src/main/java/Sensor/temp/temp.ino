@@ -1,7 +1,7 @@
 #include "DHT.h"
 #include <Wire.h>
 #define DHTPIN 33
-#define DHTTYPE DHT11
+#define DHTTYPE DHT22
 #include <LiquidCrystal_PCF8574.h>
 
 //DHTTYPE = DHT11, but there are also DHT22 and 21
@@ -82,22 +82,52 @@ void Led() {
     char dato = Serial.read();  // Leer el dato enviado desde Java
 
     if (dato == '1') {
-      statusE1 = !statusE1;
-      digitalWrite(LED1, HIGH);
-      Serial.println(statusE1 ? "LED1 ENCENDIDO" : "LED1 APAGADO");
-      actualizarLCD();
+      if (!statusE1) {  // solo enciende si estaba apagado
+        statusE1 = true;
+        digitalWrite(LED1, HIGH);
+        Serial.println("LED1 ENCENDIDO");
+        actualizarLCD();
+      }
     } else if (dato == '0') {
-      statusE1 = !statusE1;
-      digitalWrite(LED1, LOW);
-      Serial.println(statusE1 ? "LED1 ENCENDIDO" : "LED1 APAGADO");
-      actualizarLCD();
+      if (statusE1) {  // solo apaga si estaba encendido
+        statusE1 = false;
+        digitalWrite(LED1, LOW);
+        Serial.println("LED1 APAGADO");
+        actualizarLCD();
+      }
+    } else if (dato == '2') {
+      if (!statusE2) {
+        statusE2 = true;
+        digitalWrite(LED2, HIGH);
+        Serial.println("LED2 ENCENDIDO");
+        actualizarLCD();
+      }
+    } else if (dato == '3') {
+      if (statusE2) {  // solo apaga si estaba encendido
+        statusE2 = false;
+        digitalWrite(LED2, LOW);
+        Serial.println("LED2 APAGADO");
+        actualizarLCD();
+      }
+    } else if (dato == '4') {
+      if (!statusE3) {  //
+        statusE3 = true;
+        digitalWrite(LED3, HIGH);
+        Serial.println("LED3 ENCENDIDO");
+        actualizarLCD();
+      }
+    } else if (dato == '5') {
+      if (statusE3) {  // solo apaga si estaba encendido
+        statusE3 = false;
+        digitalWrite(LED3, LOW);
+        Serial.println("LED3 APAGADO");
+        actualizarLCD();
+      }
     }
   }
 }
 void loop() {
   Led();
-
-
   bool currentBtn1 = digitalRead(BTN1);
   if (lastBtn1 == HIGH && currentBtn1 == LOW) {  // transición ALTO → BAJO (pulsado)
     statusE1 = !statusE1;                        // cambiar estado del LED
@@ -113,7 +143,7 @@ void loop() {
   if (lastBtn2 == HIGH && currentBtn2 == LOW) {
     statusE2 = !statusE2;
     digitalWrite(LED2, statusE2);
-    Serial.println(statusE1 ? "LED2 ENCENDIDO" : "LED2 APAGADO");
+    Serial.println(statusE2 ? "LED2 ENCENDIDO" : "LED2 APAGADO");
     actualizarLCD();
     delay(50);
   }
@@ -124,26 +154,21 @@ void loop() {
   if (lastBtn3 == HIGH && currentBtn3 == LOW) {
     statusE3 = !statusE3;
     digitalWrite(LED3, statusE3);
-    Serial.println(statusE1 ? "LED3 ENCENDIDO" : "LED3 APAGADO");
+    Serial.println(statusE3 ? "LED3 ENCENDIDO" : "LED3 APAGADO");
     actualizarLCD();
     delay(50);
   }
   lastBtn3 = currentBtn3;
-  // The DHT11 returns at most one measurement every 1s
 
 
   if (millis() - tiempo2 >= 5000) {
     float h = dht.readHumidity();
-    //Read the moisture content in %.
     float t = dht.readTemperature();
-    //Read the temperature in degrees Celsius
     float f = dht.readTemperature(true);
-    // true returns the temperature in Fahrenheit
 
     if (isnan(h) || isnan(t) || isnan(f)) {
       Serial.println("Failed reception");
       return;
-      //Returns an error if the ESP32 does not receive any measurements
     }
 
     Serial.print("Humidite: ");

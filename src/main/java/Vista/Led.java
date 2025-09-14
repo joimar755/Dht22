@@ -59,10 +59,32 @@ public class Led extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Btn_Enceder2 = new javax.swing.JButton();
+        Btn_apagar2 = new javax.swing.JButton();
         Btn_Enceder = new javax.swing.JButton();
         Btn_apagar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Txt_temperatura = new javax.swing.JTextField();
+        Btn_encender2 = new javax.swing.JButton();
+        Btn_Apagar2 = new javax.swing.JButton();
+        Encender3 = new javax.swing.JButton();
+        Apagar3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        Btn_Enceder2.setText("Encender");
+        Btn_Enceder2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Enceder2ActionPerformed(evt);
+            }
+        });
+
+        Btn_apagar2.setText("Apagar");
+        Btn_apagar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_apagar2ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,20 +110,66 @@ public class Led extends javax.swing.JFrame {
             }
         });
 
+        Btn_encender2.setText("Encender");
+        Btn_encender2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_encender2ActionPerformed(evt);
+            }
+        });
+
+        Btn_Apagar2.setText("Apagar");
+        Btn_Apagar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Apagar2ActionPerformed(evt);
+            }
+        });
+
+        Encender3.setText("Enceder");
+        Encender3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Encender3ActionPerformed(evt);
+            }
+        });
+
+        Apagar3.setText("Apagar");
+        Apagar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Apagar3ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("led2");
+
+        jLabel3.setText("led3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(Btn_Enceder)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Btn_Enceder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_encender2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Encender3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35)
-                .addComponent(Btn_apagar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(Txt_temperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Apagar3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Btn_Apagar2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Btn_apagar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addComponent(Txt_temperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +180,17 @@ public class Led extends javax.swing.JFrame {
                     .addComponent(Btn_apagar)
                     .addComponent(jLabel1)
                     .addComponent(Txt_temperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_encender2)
+                    .addComponent(Btn_Apagar2)
+                    .addComponent(jLabel2))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Encender3)
+                    .addComponent(Apagar3)
+                    .addComponent(jLabel3))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,6 +217,46 @@ public class Led extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_Txt_temperaturaActionPerformed
+
+    private void Btn_Enceder2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Enceder2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Enceder2ActionPerformed
+
+    private void Btn_apagar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_apagar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_apagar2ActionPerformed
+
+    private void Btn_encender2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_encender2ActionPerformed
+        try {
+            ino.sendData("2");
+        } catch (Exception ex) {
+            Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Btn_encender2ActionPerformed
+
+    private void Btn_Apagar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Apagar2ActionPerformed
+        try {
+            ino.sendData("3");
+        } catch (Exception ex) {
+            Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Btn_Apagar2ActionPerformed
+
+    private void Encender3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Encender3ActionPerformed
+        try {
+            ino.sendData("4");
+        } catch (Exception ex) {
+            Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Encender3ActionPerformed
+
+    private void Apagar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Apagar3ActionPerformed
+        try {
+            ino.sendData("5");
+        } catch (Exception ex) {
+            Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Apagar3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,9 +294,17 @@ public class Led extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Apagar3;
+    private javax.swing.JButton Btn_Apagar2;
     private javax.swing.JButton Btn_Enceder;
+    private javax.swing.JButton Btn_Enceder2;
     private javax.swing.JButton Btn_apagar;
+    private javax.swing.JButton Btn_apagar2;
+    private javax.swing.JButton Btn_encender2;
+    private javax.swing.JButton Encender3;
     public javax.swing.JTextField Txt_temperatura;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
