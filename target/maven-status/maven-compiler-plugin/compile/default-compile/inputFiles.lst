@@ -1,7 +1,15 @@
 /home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Modelo_dht.java
-/home/joimar/NetBeansProjects/Dht22/src/main/java/Controlador/Controlador_esp.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Sql_usuarios.java
 /home/joimar/NetBeansProjects/Dht22/src/main/java/Vista/Grafico.java
-/home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Consulta.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Modelo_Persona.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Modelo_Usuarios.java
 /home/joimar/NetBeansProjects/Dht22/src/main/java/com/mycompany/dht22/Dht22.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Controlador/Controlador_Usuarios.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Vista/Registro_usuarios.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/hash.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Controlador/Controlador_esp.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/MultiA_Arduino/PanamaHitek_MultiMessage.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Vista/login.java
+/home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Consulta.java
 /home/joimar/NetBeansProjects/Dht22/src/main/java/Modelo/Conexion.java
 /home/joimar/NetBeansProjects/Dht22/src/main/java/Vista/Led.java

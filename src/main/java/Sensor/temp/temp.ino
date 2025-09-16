@@ -171,13 +171,11 @@ void loop() {
       return;
     }
 
-    Serial.print("Humidite: ");
-    Serial.print(h);
-    Serial.print("%  Temperature: ");
+    Serial.print("Temperatura:");
     Serial.print(t);
-    Serial.print("°C, ");
-    Serial.print(f);
-    Serial.println("°F");
+    Serial.print(";");
+    Serial.print("Humedad:");
+    Serial.println(h);
   }
 
   if (millis() - tiempo2 >= 5000) {

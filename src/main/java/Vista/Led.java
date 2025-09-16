@@ -8,6 +8,7 @@ import com.panamahitek.ArduinoException;
 import com.panamahitek.PanamaHitek_Arduino;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
@@ -34,13 +35,26 @@ public class Led extends javax.swing.JFrame {
         @Override
         public void serialEvent(SerialPortEvent spe) {
             try {
-                if (ino.isMessageAvailable() == true) {
-                    try {
-                        Txt_temperatura.setText(ino.printMessage());
-                    } catch (SerialPortException ex) {
-                        Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (ArduinoException ex) {
-                        Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
+                if (ino.isMessageAvailable()) {
+                    String mensaje = ino.printMessage().trim(); // 🔹 leer solo 1 vez
+                    System.out.println("Mensaje recibido: " + mensaje);
+
+                    // Actualizar JTextField en hilo gráfico
+                    SwingUtilities.invokeLater(() -> {
+                        Txt_temperatura.setText(mensaje);
+                    });
+
+                    // Extraer humedad y temperatura
+                    if (mensaje.contains("Temperatura:") && mensaje.contains("Humedad:")) {
+                        String[] partes = mensaje.split(";");
+                        String humStr = partes[0].split(":")[1].trim();
+                        String tempStr = partes[1].split(":")[1].trim();
+
+                        double humedad = Double.parseDouble(humStr);
+                        double temperatura = Double.parseDouble(tempStr);
+
+                        System.out.println("Humedad: " + humedad + " %");
+                        System.out.println("Temperatura: " + temperatura + " °C");
                     }
                 }
             } catch (SerialPortException ex) {
@@ -48,9 +62,7 @@ public class Led extends javax.swing.JFrame {
             } catch (ArduinoException ex) {
                 Logger.getLogger(Led.class.getName()).log(Level.SEVERE, null, ex);
             }
- 
-            
-            
+
         }
 
     };
